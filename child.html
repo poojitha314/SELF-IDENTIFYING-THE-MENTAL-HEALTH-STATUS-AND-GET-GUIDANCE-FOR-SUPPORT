@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children Mental Health Analysis</title>
+    <link rel="stylesheet" href="child.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Children Mental Health Analysis</h1>
+        <div id="questionContainer">
+            <div id="questionStep1" class="question-step">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required>
+                <button onclick="nextQuestion(1)">Next</button>
+            </div>
+            <div id="questionStep2" class="question-step">
+                <label>How often does your child feel anxious?</label>
+                <select id="anxiety">
+                    <option value="never">Never</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                    <option value="always">Always</option>
+                </select>
+                <button onclick="nextQuestion(2)">Next</button>
+            </div>
+            <div id="questionStep3" class="question-step">
+                <label>How often does your child have trouble concentrating?</label>
+                <select id="concentration">
+                    <option value="never">Never</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                    <option value="always">Always</option>
+                </select>
+                <button onclick="nextQuestion(3)">Next</button>
+            </div>
+            <div id="questionStep4" class="question-step">
+                <label>How often does your child feel sad?</label>
+                <select id="sadness">
+                    <option value="never">Never</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                    <option value="always">Always</option>
+                </select>
+                <button onclick="nextQuestion(4)">Next</button>
+            </div>
+            <div id="questionStep5" class="question-step">
+                <label>Which image best represents your child's mood most of the time?</label>
+                <div class="image-options">
+                    <img src="happy.jpg" alt="Happy" onclick="selectImage('happy')">
+                    <img src="neutral.jpg" alt="Neutral" onclick="selectImage('neutral')">
+                    <img src="sad.jpg" alt="Sad" onclick="selectImage('sad')">
+                </div>
+                <button onclick="analyzeMentalHealth()">Submit</button>
+            </div>
+        </div>
+        <div id="result" class="result"></div>
+        <div id="activitiesLink" class="activities-link">
+            <a href="children.html">Go to Children's Mental Health Activities</a>
+        </div>
+    </div>
+    <script src="child.js"></script>
+</body>
+</html>

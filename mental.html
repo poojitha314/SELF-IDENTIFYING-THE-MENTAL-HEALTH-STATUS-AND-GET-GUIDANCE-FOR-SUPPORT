@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMeld</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>MindMeld</h1>
+    </header>
+
+    <main>
+        <section id="mindfulness">
+            <h2>Mindfulness Exercises</h2>
+            <div class="exercise">
+                <h3>Exercise 1: Deep Breathing</h3>
+                <p>Take deep breaths for 5 minutes, focusing on your breath.</p>
+                <button onclick="startExercise('Deep Breathing')">Start</button>
+            </div>
+            <div class="exercise">
+                <h3>Exercise 2: Yoga</h3>
+                <p>Relax your body by practicing few yoga aasana</p>
+                <button onclick="startExercise('Yoga Aasana')">Start</button>
+            </div>
+        </section>
+
+        <section id="exercise-details">
+            <h2>Exercise Details</h2>
+            <div id="exercise-name"></div>
+            <div id="exercise-description"></div>
+            <button id="end-exercise">End Exercise</button>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #013;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .feedback-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .review {
+            margin-bottom: 20px;
+        }
+        .message {
+            margin-top: 10px;
+            color: green;
+        }
+        .error-message {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MindMeld</h1>
+        <h2>Mental Health Feedback</h2>
+    </header>
+    <div class="container">
+        <div class="feedback-form">
+            <h2>Self-Identifying Mental Health Status</h2>
+            <p>Please select the option that best describes your current mental health status:</p>
+            <form id="mentalHealthForm">
+                <label><input type="radio" name="mentalHealth" value="excellent"> Excellent</label>
+                <label><input type="radio" name="mentalHealth" value="good"> Good</label>
+                <label><input type="radio" name="mentalHealth" value="fair"> Fair</label>
+                <label><input type="radio" name="mentalHealth" value="poor"> Poor</label>
+                <label><input type="radio" name="mentalHealth" value="very poor"> Very Poor</label>
+                <textarea id="feedback" placeholder="Any additional comments or feedback?"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+            <div class="message" id="successMessage" style="display: none;">Thank you for your feedback!</div>
+            <div class="error-message" id="errorMessage" style="display: none;">Please select your mental health status.</div>
+        </div>
+
+        <div class="guidance">
+            <h2>Guidance for Support</h2>
+            <p>Based on your selection, here is some guidance for support:</p>
+            <p id="supportGuidance"></p>
+        </div>
+
+        <div class="reviews">
+            <h2>App Reviews and Feedback for Improvement</h2>
+            <div class="review">
+                <h3>Review 1</h3>
+                <p>Rating: 4 stars</p>
+                <p>Feedback:Good</p>
+            </div>
+            <div class="review">
+                <h3>Review 2</h3>
+                <p>Rating: 5 stars</p>
+                <p>Feedback:Excellent</p>
+            </div>
+            <!-- More reviews can be added here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('mentalHealthForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var selectedOption = document.querySelector('input[name="mentalHealth"]:checked');
+            var feedback = document.getElementById('feedback').value;
+            if (selectedOption) {
+                var supportGuidance = "";
+                switch(selectedOption.value) {
+                    case 'excellent':
+                        supportGuidance = "You're doing great! Keep up the good work.";
+                        break;
+                    case 'good':
+                        supportGuidance = "Maintain your positive habits and seek help if needed.";
+                        break;
+                    case 'fair':
+                        supportGuidance = "Consider seeking support to improve your mental well-being.";
+                        break;
+                    case 'poor':
+                        supportGuidance = "It's important to prioritize your mental health. Reach out for help if necessary.";
+                        break;
+                    case 'very poor':
+                        supportGuidance = "You're not alone. Please seek professional help and support.";
+                        break;
+                }
+                document.getElementById('supportGuidance').textContent = supportGuidance;
+                // Here you can send the feedback to your backend for storage and analysis
+                console.log("Mental health status: " + selectedOption.value);
+                console.log("Additional feedback: " + feedback);
+                document.getElementById('successMessage').style.display = "block";
+                document.getElementById('errorMessage').style.display = "none";
+            } else {
+                document.getElementById('errorMessage').style.display = "block";
+                document.getElementById('successMessage').style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

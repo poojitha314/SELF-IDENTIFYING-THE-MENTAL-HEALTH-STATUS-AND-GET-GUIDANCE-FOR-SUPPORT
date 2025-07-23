@@ -1,0 +1,34 @@
+// app.js
+
+// Function to start a mindfulness exercise
+function startExercise(exerciseName) {
+    const exerciseDescription = getExerciseDescription(exerciseName);
+
+    document.getElementById("exercise-name").textContent = exerciseName;
+    document.getElementById("exercise-description").textContent = exerciseDescription;
+    document.getElementById("exercise-details").style.display = "block";
+
+    // Redirect to the corresponding exercise page based on exerciseName
+    if (exerciseName === "Deep Breathing") {
+        window.location.href = 'deepbreathing.html';
+    } else if (exerciseName === "Yoga Aasana") {
+        window.location.href = 'yogaexercise.html';
+    }
+}
+
+// Function to get exercise description (replace with actual data)
+function getExerciseDescription(exerciseName) {
+    // Replace with an actual exercise description based on exerciseName
+    return "This is a description of the exercise.";
+}
+
+// Function to log out the user
+document.getElementById("logout").addEventListener("click", function () {
+    // Implement user logout logic (e.g., redirect to login page)
+    alert("Logged out!");
+});
+
+// Function to navigate back to the exercises page from the exercise details page
+document.getElementById("back-to-exercises").addEventListener("click", function () {
+    window.location.href = 'index.html'; // Redirect back to the exercises page
+});

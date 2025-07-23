@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Breathing Exercise</title>
+    <link rel="stylesheet" href="bstyles.css">
+</head>
+<body>
+    <header>
+        <h1>Deep Breathing</h1>
+        <button id="back-to-exercises">Back to Exercises</button>
+    </header>
+
+    <main>
+        <section id="exercise-content">
+            <div id="exercise-picture">
+                <!-- Add your picture here -->
+                <img src="deep_breathing.jpg" alt="Deep Breathing Exercise" class="exercise-image">
+            </div>
+            <div id="exercise-timer">
+                <h2>Timer: <span id="countdown" class="timer">5:00</span></h2>
+            </div>
+        </section>
+    </main>
+
+    <script src="timer.js"></script>
+</body>
+</html>

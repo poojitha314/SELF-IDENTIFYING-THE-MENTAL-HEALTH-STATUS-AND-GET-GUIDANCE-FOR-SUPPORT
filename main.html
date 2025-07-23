@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health Portal</title>
+<style>
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('mainbg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .task-bar {
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    padding: 15px 20px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-around;
+  }
+  .task-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+  }
+  .task-bar a:hover {
+    color: #ffdd57;
+  }
+  .content-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    margin: 50px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #007bff;
+  }
+  .quote {
+    font-style: italic;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .scroll-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    border: 2px solid #007bff;
+  }
+  .column {
+    width: calc(25% - 40px);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    display: inline-block;
+  }
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .start-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+  }
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    .column {
+      width: calc(50% - 40px);
+    }
+  }
+  @media (max-width: 480px) {
+    .task-bar {
+      flex-direction: column;
+    }
+    .column {
+      width: calc(100% - 40px);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="task-bar">
+  <a href="main.html">Home</a>
+  <a href="mymain.html">Sign In</a>
+  <a href="feed.html">Feedback</a>
+  <a href="symptoms.html">Symptoms</a>
+</div>
+
+<div class="content-box">
+  <h2 style="color: #007bff;">Test Your Mental Health</h2>
+  <p>Welcome to the portal where your well-being is our priority.</p>
+  <p>Take your mental health test to gain insights into your emotional well-being and discover ways to improve your mental health. Your mental health matters.</p>
+  <p class="quote">"Your mind is a powerful thing. When you fill it with positive thoughts, your life will start to change."</p>
+  <button class="start-button" onclick="window.location.href='mymain.html'">Start the Test</button>
+</div>
+
+<div class="scroll-box">
+  <h2 style="color: #007bff;">Importance of Mental Health</h2>
+  <div class="clearfix">
+    <div class="column">
+      <h3>Mindfulness</h3>
+      <p>Practice mindfulness to stay present, reduce stress, and improve your mental well-being.</p>
+    </div>
+    <div class="column">
+      <h3>Emotional Well-being</h3>
+      <p>Embrace your emotions, seek support when needed, and prioritize your emotional health.</p>
+    </div>
+    <div class="column">
+      <h3>Self Care</h3>
+      <p>Take time for self-care activities such as meditation and hobbies.</p>
+    </div>
+    <div class="column">
+      <h3>Healthy Relationships</h3>
+      <p>Nurture healthy relationships with friends and family for emotional support.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

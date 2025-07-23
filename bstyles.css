@@ -1,0 +1,66 @@
+/* Reset some default styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply basic styling to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Style the h1 in the header */
+header h1 {
+    font-size: 24px;
+}
+
+/* Style the back-to-exercises button in the header */
+#back-to-exercises {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Style the main content section */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the exercise content section */
+#exercise-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the exercise image */
+.exercise-image {
+    max-width: 100%;
+    height: auto;
+    width: auto\9;
+    margin: 0 auto;
+    display: block;
+    max-height: 200px;
+}
+
+/* Style the timer */
+.timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}

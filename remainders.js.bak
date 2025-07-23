@@ -1,0 +1,48 @@
+// Function to send reminders as notifications
+function sendReminder(title, options) {
+    if ('Notification' in window && Notification.permission === 'granted') {
+        // Create and display the reminder notification
+        const reminderNotification = new Notification(title, options);
+    }
+}
+
+// Function to request notification permission
+function requestNotificationPermission() {
+    if ('Notification' in window) {
+        Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                // Permission granted, you can now send notifications
+                scheduleReminder();
+            }
+        });
+    }
+}
+
+// Function to schedule a reminder
+function scheduleReminder() {
+    // Customize the reminder content and timing here
+    const reminderTitle = "Reminder";
+    const reminderOptions = {
+        body: "Don't forget to complete your assessment.",
+        icon: "http://localhost/idyllic.html", // Replace with the path to your app's icon
+    };
+
+    // Schedule the reminder to display after a specific time (e.g., 5 seconds)
+    setTimeout(function () {
+        sendReminder(reminderTitle, reminderOptions);
+    }, 5000); // 5000 milliseconds (5 seconds)
+}
+
+// Example: Call requestNotificationPermission after user signs in successfully
+function signIn() {
+    // Perform sign-in logic here
+    // ...
+
+    // After a successful sign-in, request notification permission
+    requestNotificationPermission();
+}
+
+// Call the defaultTab function when the page loads
+window.onload = function () {
+    // Call defaultTab function or any other initialization logic here
+};

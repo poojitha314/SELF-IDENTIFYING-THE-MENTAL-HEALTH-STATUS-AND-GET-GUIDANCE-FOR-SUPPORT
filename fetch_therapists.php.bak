@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Details Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('image.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .details-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+    }
+    
+    .details-group {
+      margin-bottom: 20px;
+    }
+    
+    .details-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .details-group span {
+      font-weight: normal;
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <div class="details-container">
+      <div class="title">Therapist Details</div>
+<?php
+// Database connection
+$dbHost = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "idyllic";
+
+$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$area = $_POST['area'];
+$city = $_POST['city'];
+
+// SQL query to fetch therapists based on city and area
+$sql = "SELECT * FROM therapists WHERE doc_area = '$area' AND doc_city = '$city'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<html><head><title>Therapists</title></head><body>";
+    echo "<h1>Therapists in $area, $city</h1>";
+    echo "<table>";
+    echo "<tr><th>Name</th><th>Area</th><th>City</th><th>Experience</th><th>Consultancy Fee</th></tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['doc_name'] . "</td>";
+        echo "<td>" . $row['doc_area'] . "</td>";
+        echo "<td>" . $row['doc_city'] . "</td>";
+        echo "<td>" . $row['doc_exp'] . "</td>";
+        echo "<td>" . $row['doc_cfee'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+    echo "</body></html>";
+} else {
+    echo "No therapists found in $area, $city";
+}
+
+$conn->close();
+?>
+</div>
+  </div>
+</body>
+</html>

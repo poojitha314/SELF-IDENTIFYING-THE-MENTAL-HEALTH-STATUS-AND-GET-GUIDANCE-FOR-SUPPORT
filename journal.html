@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journaling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Journaling</h1>
+    </header>
+    <div class="container">
+        <textarea id="journal-entry" placeholder="Write your journal entry here..."></textarea>
+        <button onclick="saveJournal()">Save Entry</button>
+        <div id="saved-entries">
+            <!-- Saved entries will appear here -->
+        </div>
+    </div>
+
+    <script>
+        function saveJournal() {
+            const entry = document.getElementById('journal-entry').value;
+            if (entry.trim() !== '') {
+                const savedEntries = document.getElementById('saved-entries');
+                const entryElement = document.createElement('p');
+                entryElement.textContent = entry;
+                savedEntries.appendChild(entryElement);
+                document.getElementById('journal-entry').value = '';
+            } else {
+                alert('Please write something before saving.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw and Color</title>
+    <style>
+        #canvas {
+            border: 2px solid #000;
+            cursor: crosshair;
+        }
+        .color-button {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draw and Color</h1>
+    <canvas id="canvas" width="1000" height="400"></canvas>
+    <div id="color-palette">
+        <div class="color-button" style="background-color: red;" onclick="fillColor('red')"></div>
+        <div class="color-button" style="background-color: blue;" onclick="fillColor('blue')"></div>
+        <div class="color-button" style="background-color: green;" onclick="fillColor('green')"></div>
+        <div class="color-button" style="background-color: yellow;" onclick="fillColor('yellow')"></div>
+        <div class="color-button" style="background-color: orange;" onclick="fillColor('orange')"></div>
+        <div class="color-button" style="background-color: purple;" onclick="fillColor('purple')"></div>
+        <div class="color-button" style="background-color: pink;" onclick="fillColor('pink')"></div>
+        <div class="color-button" style="background-color: black;" onclick="fillColor('black')"></div>
+        <div class="color-button" style="background-color: white;" onclick="fillColor('white')"></div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+
+        function draw(event) {
+            if (!isDrawing) return;
+
+            const x = event.clientX - canvas.offsetLeft;
+            const y = event.clientY - canvas.offsetTop;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
+
+        function startDrawing(event) {
+            isDrawing = true;
+            ctx.beginPath();
+            const x = event.clientX - canvas.offsetLeft;
+            const y = event.clientY - canvas.offsetTop;
+            ctx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function fillColor(color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINDMELD</title>
+    <link rel="stylesheet" href="first.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f8ff 0%, #87cefa 100%);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #4682b4;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        header h1 {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+        header img {
+            margin-right: 10px;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        #welcome {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        #welcome h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        #welcome p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        #start-assessment {
+            padding: 15px 30px;
+            font-size: 1em;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #start-assessment a {
+            color: white;
+            text-decoration: none;
+        }
+        #start-assessment:hover {
+            background-color: #5a9bd3;
+        }
+        footer {
+            background-color: #4682b4;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1><img src="log.jpg" height="50px" width="50px"> MINDMELD</h1>
+        </div>
+    </header>
+    
+    <main>
+        <section id="welcome">
+            <h2>Welcome to the Assessment</h2>
+            <p>Take a moment to evaluate your mental health and well-being.</p>
+            <button id="start-assessment"><a href="stest.html">Start Assessment</a></button>
+        </section>
+
+        <section id="questions">
+            
+        </section>
+
+        <section id="results">
+           
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; MINDMELD </p>
+    </footer>
+
+    <script>
+        // Function to prompt feedback after 2 minutes
+        function promptFeedback() {
+            // Display a confirmation dialog
+            if (confirm("We'd love to hear your feedback! Would you like to share your thoughts?")) {
+                // Redirect to the feedback page
+                window.location.href = "feed.html";
+            }
+        }
+
+        // Schedule the feedback prompt after 2 minutes
+        setTimeout(promptFeedback, 2 * 60 * 1000); // 2 minutes in milliseconds
+    </script>
+</body>
+</html>
